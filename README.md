@@ -39,3 +39,49 @@ func main(){
 	}
 }
 ```
+Send email with an HTML template using the SendEmailWithTemplate function
+```HTML
+<!-- template.html -->
+<!DOCTYPE html>
+<html>
+  <body>
+    <h3 style="color: red">Name:</h3>
+    <span>{{.Name}}</span><br /><br />
+    <h3 style="color: blue">Email:</h3>
+    <span>{{.Message}}</span><br />
+  </body>
+</html>
+```
+Generate a *template.Template variable from the template.html file and pass it to the function:
+```go
+package main
+
+import (
+	"text/template"
+
+	"github.com/Seifbarouni/fast-utils/utils"
+)
+
+func main() {
+	t, _ := template.ParseFiles("template.html")
+	//The struct data must match the html template
+	//For more information visit https://golangdocs.com/templates-in-golang
+	err := utils.SendEmailWithTemplate(
+		"from@gmail.com",
+		"to@gmail.com",
+		"gmail application password",
+		"subject",
+		t,
+		struct {
+			Name    string
+			Message string
+		}{
+			Name:    "Seif",
+			Message: "Hello World",
+		},
+	)
+	if err != nil {
+		panic(err)
+	}
+}
+```
