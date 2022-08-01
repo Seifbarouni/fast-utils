@@ -1,5 +1,5 @@
 # fast-utils
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://choosealicense.com/licenses/mit/)
+[![License](https://img.shields.io/badge/license-GPL-3.0-blue.svg)](https://choosealicense.com/licenses/gpl-3.0/)
 ## Install
 Go version 1.18+
 ```bash
