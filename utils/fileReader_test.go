@@ -2,8 +2,8 @@ package utils
 
 import "testing"
 
-
-func TestGetVariable(t *testing.T){
+// Change the folderName and name to test the function
+func TestGetVariable(t *testing.T) {
 	var folderName string = "config"
 	var name string = "test"
 	var expected string = "test"
